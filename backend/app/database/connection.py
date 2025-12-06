@@ -3,14 +3,25 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 
-DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./sql_app.db")
+import sys
 
+# Get DATABASE_URL, strictly enforce it (no SQLite fallback)
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if not DATABASE_URL:
+    print("❌ Error: DATABASE_URL environment variable is not set.")
+    print("Please set it to your PostgreSQL connection string.")
+    print("Example: postgresql://user:password@localhost:5432/dbname")
+    # For now, we raise an error so valid deployment fails if env var missing
+    # In production config, this is good.
+    sys.exit(1)
+
+# Fix for Render providing 'postgres://' instead of 'postgresql://'
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-connect_args = {"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
-
-engine = create_engine(DATABASE_URL, connect_args=connect_args)
+# PostgreSQL does not need check_same_thread
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
