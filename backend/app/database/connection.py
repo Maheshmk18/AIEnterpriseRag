@@ -25,8 +25,8 @@ connect_args = {}
 if "neon.tech" in DATABASE_URL:
     # Neon-specific SSL configuration
     connect_args = {
+        "sslmode": "require",
         "connect_timeout": 10,
-        "options": "-c statement_timeout=30000"
     }
 
 engine = create_engine(
@@ -35,7 +35,8 @@ engine = create_engine(
     pool_pre_ping=True,  # Verify connections before using
     pool_recycle=300,     # Recycle connections every 5 minutes
     pool_size=5,
-    max_overflow=10
+    max_overflow=10,
+    echo=False  # Set to True for SQL debugging
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
