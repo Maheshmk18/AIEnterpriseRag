@@ -20,8 +20,23 @@ if not DATABASE_URL:
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-# PostgreSQL does not need check_same_thread
-engine = create_engine(DATABASE_URL)
+# Configure engine with SSL and connection pooling for Neon
+connect_args = {}
+if "neon.tech" in DATABASE_URL:
+    # Neon-specific SSL configuration
+    connect_args = {
+        "connect_timeout": 10,
+        "options": "-c statement_timeout=30000"
+    }
+
+engine = create_engine(
+    DATABASE_URL,
+    connect_args=connect_args,
+    pool_pre_ping=True,  # Verify connections before using
+    pool_recycle=300,     # Recycle connections every 5 minutes
+    pool_size=5,
+    max_overflow=10
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
