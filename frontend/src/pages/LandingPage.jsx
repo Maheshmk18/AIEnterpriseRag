@@ -4,7 +4,7 @@ import {
     Sparkles, Upload, MessageSquare, ArrowRight,
     Brain, FileText, Link2, Shield, Zap, Clock,
     Users, Building2, DollarSign, Code, Settings,
-    Menu, X, ChevronDown, CheckCircle, Play
+    Menu, X, ChevronDown, CheckCircle, Play, Linkedin
 } from 'lucide-react';
 
 function LandingPage() {
@@ -1070,6 +1070,25 @@ function LandingPage() {
                         </div>
                     </div>
 
+                    <div style={{ marginTop: '32px', display: 'flex', gap: '16px' }}>
+                        <a href="https://www.linkedin.com/in/mahesh-k-6a4520291/" target="_blank" rel="noopener noreferrer" style={{
+                            width: '40px',
+                            height: '40px',
+                            background: 'rgba(255,255,255,0.1)',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: 'white',
+                            transition: 'all 0.3s ease'
+                        }}
+                            onMouseOver={(e) => e.currentTarget.style.background = '#0077b5'}
+                            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+                        >
+                            <Linkedin size={20} />
+                        </a>
+                    </div>
+
                     <div style={{
                         paddingTop: '32px',
                         borderTop: '1px solid rgba(255,255,255,0.1)',
@@ -1091,6 +1110,17 @@ function LandingPage() {
                 @keyframes bounce {
                     0%, 100% { transform: translateY(0); }
                     50% { transform: translateY(-10px); }
+                }
+
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
                 }
             `}</style>
         </div>

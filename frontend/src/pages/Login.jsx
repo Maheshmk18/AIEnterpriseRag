@@ -85,26 +85,10 @@ const Login = () => {
         animation: 'float 8s ease-in-out infinite reverse'
       }}></div>
 
-      <div style={{
-        display: 'flex',
-        width: '100%',
-        maxWidth: '900px',
-        background: 'white',
-        borderRadius: '24px',
-        overflow: 'hidden',
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        position: 'relative',
-        zIndex: 1
-      }}>
+      <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl relative z-10">
         {/* Left Side - Branding */}
-        <div style={{
-          flex: 1,
+        <div className="flex-1 p-8 md:p-12 flex flex-col justify-center text-white" style={{
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          padding: '48px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          color: 'white'
         }}>
           <div style={{
             width: '64px',
@@ -119,13 +103,13 @@ const Login = () => {
           }}>
             <Sparkles size={32} />
           </div>
-          <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '12px' }}>
+          <h1 className="text-3xl font-bold mb-3">
             Enterprise RAG
           </h1>
-          <p style={{ opacity: 0.9, fontSize: '1.1rem', lineHeight: 1.6 }}>
+          <p className="opacity-90 text-lg leading-relaxed">
             AI-powered knowledge management for your organization
           </p>
-          <div style={{ marginTop: '48px' }}>
+          <div className="mt-8 hidden md:block">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
               <div style={{ width: '8px', height: '8px', background: 'rgba(255,255,255,0.8)', borderRadius: '50%' }} />
               <span style={{ opacity: 0.9 }}>Instant answers from your documents</span>
@@ -142,13 +126,7 @@ const Login = () => {
         </div>
 
         {/* Right Side - Login Form */}
-        <div style={{
-          flex: 1,
-          padding: '48px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}>
+        <div className="flex-1 p-8 md:p-12 flex flex-col justify-center">
           <h2 style={{ fontSize: '1.75rem', fontWeight: '600', marginBottom: '8px', color: '#1e293b' }}>
             Welcome back
           </h2>
