@@ -143,7 +143,8 @@ function LandingPage() {
                                 fontWeight: '800',
                                 lineHeight: '1.1',
                                 marginBottom: '24px',
-                                color: '#1a1a2e'
+                                color: '#1a1a2e',
+                                animation: 'fadeInUp 0.8s ease-out'
                             }}>
                                 Your Enterprise Knowledge,
                                 <span style={{
@@ -161,12 +162,19 @@ function LandingPage() {
                                 fontSize: '1.25rem',
                                 color: '#64748b',
                                 marginBottom: '32px',
-                                lineHeight: '1.8'
+                                lineHeight: '1.8',
+                                animation: 'fadeInUp 0.8s ease-out 0.2s backwards'
                             }}>
                                 Instant, accurate answers from your company documents using advanced RAG technology.
                             </p>
 
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '40px' }}>
+                            <div style={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                gap: '16px',
+                                marginBottom: '40px',
+                                animation: 'fadeInUp 0.8s ease-out 0.4s backwards'
+                            }}>
                                 <button
                                     onClick={() => navigate('/login')}
                                     style={{
