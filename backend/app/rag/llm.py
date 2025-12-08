@@ -14,7 +14,7 @@ else:
 class LLMHandler:
     def __init__(self):
         # Use Gemini Flash (Fast & Free)
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        self.model = genai.GenerativeModel('gemini-pro')
     
     def _is_casual_chat(self, query: str) -> bool:
         casual_words = ['okay', 'ok', 'thanks', 'thank you', 'bye', 'hello', 'hi', 
