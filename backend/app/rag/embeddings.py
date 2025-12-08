@@ -13,7 +13,7 @@ else:
 
 class EmbeddingsGenerator:
     def __init__(self):
-        self.model = "models/embedding-001"
+        self.model = "models/text-embedding-004"
     
     def generate_embeddings(self, texts: List[str]) -> List[List[float]]:
         """Generate embeddings for a list of texts using Gemini"""
