@@ -28,20 +28,6 @@ If you haven't created a GitHub repository yet:
 4. Run:
    ```bash
    git remote add origin https://github.com/YOUR_USERNAME/enterprise-rag.git
-   git branch -M main
-   git push -u origin main
-   ```
-
----
-
-## Part 2: Deploy Backend to Render
-
-### Step 1: Sign Up / Log In to Render
-
-1. Go to **https://dashboard.render.com**
-2. Sign up with GitHub (recommended) or email
-3. Authorize Render to access your GitHub repositories
-
 ### Step 2: Create New Web Service
 
 1. Click **"New +"** button → **"Web Service"**
