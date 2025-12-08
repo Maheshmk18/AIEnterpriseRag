@@ -36,12 +36,12 @@ app.include_router(api_router, prefix=settings.API_V1_STR)
 @app.on_event("startup")
 async def startup_event():
     init_db()
-    # Verify OpenAI API key is loaded
-    api_key = os.environ.get("OPENAI_API_KEY")
+    # Verify Google API key is loaded
+    api_key = os.environ.get("GOOGLE_API_KEY")
     if api_key:
-        print(f"✓ OpenAI API Key loaded (starts with: {api_key[:20]}...)")
+        print(f"✓ Google API Key loaded (starts with: {api_key[:20]}...)")
     else:
-        print("⚠ Warning: OPENAI_API_KEY not found in environment")
+        print("⚠ Warning: GOOGLE_API_KEY not found in environment")
 
 
 @app.get("/")
@@ -55,8 +55,8 @@ def root():
 
 @app.get("/health")
 def health_check():
-    api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = os.environ.get("GOOGLE_API_KEY")
     return {
         "status": "healthy",
-        "openai_configured": bool(api_key)
+        "google_api_configured": bool(api_key)
     }

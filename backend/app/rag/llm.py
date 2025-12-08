@@ -1,6 +1,10 @@
 import os
+from dotenv import load_dotenv
 import google.generativeai as genai
 from typing import List, Dict, Optional, Generator
+
+# Load environment variables first
+load_dotenv()
 
 # Configure API Key
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -13,8 +17,8 @@ else:
 
 class LLMHandler:
     def __init__(self):
-        # Use Gemini Flash (Fast & Free)
-        self.model = genai.GenerativeModel('models/gemini-1.5-flash')
+        # Use Gemini 2.5 Flash (Fast & Free)
+        self.model = genai.GenerativeModel('gemini-2.5-flash')
     
     def _is_casual_chat(self, query: str) -> bool:
         casual_words = ['okay', 'ok', 'thanks', 'thank you', 'bye', 'hello', 'hi', 
