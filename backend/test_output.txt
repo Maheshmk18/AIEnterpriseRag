@@ -1,0 +1,13 @@
+﻿============================================================
+HUGGING FACE API KEY TEST
+============================================================
+API Key found: hf_NYhpzWhHKoPp...
+Key length: 37 characters
+
+Testing API key with Hugging Face Inference API...
+Sending test request to Qwen 2.5 Coder...
+
+SUCCESS! API Key is working!
+Response: Hello, the API key is working!
+
+============================================================
